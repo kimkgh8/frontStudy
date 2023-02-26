@@ -8,17 +8,23 @@
 	<title>Document</title>
 </head>
 <body>
-	<div>
-		<h2>To-Do List</h2>
-		<div class="col-3"><button id="btn" class="custom-btn btn-12"><span>하라고!</span><span>작성</span></button></div>
-		<div id="list">
+	<div class="context">
+		<div>
+			<h2>To-Do List</h2>
+			<div class="col-3"><button id="btn" class="custom-btn btn-12"><span class="span">Do It!</span><span class="span">Write</span></button></div>
+			<div id="list">
+			</div>
 		</div>
 	</div>
 </body>
 <script>
 	let btn = document.getElementById("btn");
+// btn.addEventListener("click", (e) => {
+// 	alert(`Hello, ${e.target.value}`);
+// })
 	btn.addEventListener("click", (e) => {
 		createTodo();
+
 	})
 
 	const createTodo = () => {
