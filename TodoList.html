@@ -19,16 +19,27 @@
 </body>
 <script>
 	let btn = document.getElementById("btn");
+	let cnt = 0;
 // btn.addEventListener("click", (e) => {
 // 	alert(`Hello, ${e.target.value}`);
 // })
 	btn.addEventListener("click", (e) => {
-		createTodo();
-
+		let parent = createParentDiv();
+		console.log(parent);
+		createTodo(parent);
 	})
 
-	const createTodo = () => {
-		createCheckBox();
+	const createParentDiv = () => {
+		let parent = document.createElement("div");
+		parent.setAttribute("id", `parent_${cnt}`);
+		let list = document.getElementById("list");
+		list.appendChild(parent);
+		cnt++;
+		return parent;
+	}
+
+	const createTodo = (parent) => {
+		createCheckBox(parent);
 		let input = document.createElement("input");
 		input.setAttribute("type", "text");
 		input.setAttribute("class", "effect input");
@@ -41,12 +52,37 @@
 		div.setAttribute("class", "col-2");
 		div.appendChild(input);
 		div.appendChild(span);
-		let list = document.getElementById("list");
-		list.appendChild(div);
+
+
+		// let span2 = document.createElement("span");
+		// span2.appendChild(a);
+		// div.appendChild(span2);
+		parent.appendChild(div);
+
+
+		//삭제버튼
+		let a = document.createElement("a");
+		a.setAttribute("href", `javascript:deleteTarget(${parent.id})`)
+		let aSpan1 = document.createElement("span");
+		let aSpan2 = document.createElement("span");
+		let aSpan3 = document.createElement("span");
+		let aSpan4 = document.createElement("span");
+		let aText = document.createTextNode("X");
+		a.appendChild(aSpan1);
+		a.appendChild(aSpan2);
+		a.appendChild(aSpan3);
+		a.appendChild(aSpan4);
+		a.appendChild(aText)
+		let aDiv = document.createElement("div");
+		aDiv.setAttribute("class", "col-4");
+		aDiv.appendChild(a);
+
+		parent.appendChild(aDiv);
+
 		input.focus();
 	}
 
-	const createCheckBox = () => {
+	const createCheckBox = (parent) => {
 		let time = new Date().getTime();
 		let input = document.createElement("input");
 		input.setAttribute("type", "checkbox");
@@ -61,8 +97,15 @@
 		div.setAttribute("class", "col-1");
 		div.appendChild(input);
 		div.appendChild(label);
-		let list = document.getElementById("list");
-		list.appendChild(div);
+		// let list = document.getElementById("list");
+		// list.appendChild(div);
+		parent.appendChild(div);
+	}
+
+	const deleteTarget = (parent) => {
+		console.log(parent.id);
+		let targetTag = document.getElementById(parent.id);
+		targetTag.remove();
 	}
 </script>
 </html>
