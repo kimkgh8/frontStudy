@@ -3,11 +3,17 @@
 <head>
 	<title>Todo List</title>
 	<link rel="stylesheet" type="text/css" href="./css/app.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
 		<h1>Todo List</h1>
-		<input type="text" id="input" placeholder="Add a new task...">
+		<form>
+			<input type="text" id="input" placeholder="Add a new task...">
+			<button class="btn" type="submit">Add</button>
+		</form>
 		<ul id="list"></ul>
 	</div>
 
