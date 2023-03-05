@@ -1,0 +1,122 @@
+body {
+	background-color: #f2f2f2;
+	font-family: sans-serif;
+}
+
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+	border-radius: 5px;
+}
+
+h1 {
+	font-size: 36px;
+	text-align: center;
+	color: #333;
+	margin-bottom: 30px;
+}
+
+input[type="text"] {
+	padding: 10px;
+	font-size: 16px;
+	width: 100%;
+	box-sizing: border-box;
+	border: none;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0,0,0,.1) inset;
+}
+
+input[type="text"]:focus {
+	outline: none;
+}
+
+ul {
+	margin-top: 20px;
+	padding: 0;
+}
+
+li {
+	padding: 10px;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+	transition: all 0.3s ease;
+	list-style-type: none;
+}
+
+li:first-child {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+li:last-child {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom: none;
+}
+
+li.done {
+	background-color: #cfd8dc;
+	color: #999;
+}
+
+li.done::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 10px;
+	height: 2px;
+	background-color: #999;
+}
+
+li.done::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%) rotate(-45deg);
+	width: 6px;
+	height: 2px;
+	background-color: #999;
+}
+
+li .delete {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	opacity: 0;
+	transition: all 0.3s ease;
+}
+
+li:hover .delete {
+	opacity: 1;
+}
+
+li .delete::before {
+	content: "×";
+	font-size: 16px;
+	color: #999;
+}
+
+li .delete:hover::before {
+	color: #f44336;
+}
+
+li.fade {
+	opacity: 0;
+	max-height: 0;
+	padding: 0;
+	transition: all 0.3s ease;
+}
+
+li.fade.done {
+	max-height: 50px;
+}
