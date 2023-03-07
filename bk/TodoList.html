@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="context">
+		<div>
+			<h2>To-Do List</h2>
+			<div class="col-3"><button id="btn" class="custom-btn btn-12"><span class="span">Do It!</span><span class="span">Write</span></button></div>
+			<div id="list">
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	let btn = document.getElementById("btn");
+	let cnt = 0;
+// btn.addEventListener("click", (e) => {
+// 	alert(`Hello, ${e.target.value}`);
+// })
+	btn.addEventListener("click", (e) => {
+		let parent = createParentDiv();
+		console.log(parent);
+		createTodo(parent);
+	})
+
+	const createParentDiv = () => {
+		let parent = document.createElement("div");
+		parent.setAttribute("id", `parent_${cnt}`);
+		let list = document.getElementById("list");
+		list.appendChild(parent);
+		cnt++;
+		return parent;
+	}
+
+	const createTodo = (parent) => {
+		createCheckBox(parent);
+		let input = document.createElement("input");
+		input.setAttribute("type", "text");
+		input.setAttribute("class", "effect input");
+		input.setAttribute("type", "text");
+		input.setAttribute("placeholder","ToDo")
+		input.setAttribute("onKeyup", "if(window.event.keyCode==13){(createTodo())}")
+		let span = document.createElement("span");
+		span.setAttribute("class", "focus-border");
+		let div = document.createElement("div");
+		div.setAttribute("class", "col-2");
+		div.appendChild(input);
+		div.appendChild(span);
+
+
+		// let span2 = document.createElement("span");
+		// span2.appendChild(a);
+		// div.appendChild(span2);
+		parent.appendChild(div);
+
+
+		//삭제버튼
+		let a = document.createElement("a");
+		a.setAttribute("href", `javascript:deleteTarget(${parent.id})`)
+		let aSpan1 = document.createElement("span");
+		let aSpan2 = document.createElement("span");
+		let aSpan3 = document.createElement("span");
+		let aSpan4 = document.createElement("span");
+		let aText = document.createTextNode("X");
+		a.appendChild(aSpan1);
+		a.appendChild(aSpan2);
+		a.appendChild(aSpan3);
+		a.appendChild(aSpan4);
+		a.appendChild(aText)
+		let aDiv = document.createElement("div");
+		aDiv.setAttribute("class", "col-4");
+		aDiv.appendChild(a);
+
+		parent.appendChild(aDiv);
+
+		input.focus();
+	}
+
+	const createCheckBox = (parent) => {
+		let time = new Date().getTime();
+		let input = document.createElement("input");
+		input.setAttribute("type", "checkbox");
+		input.setAttribute("class", "_checkbox");
+		input.setAttribute("id", `checkbox${time}`);
+		let label = document.createElement("label")
+		label.setAttribute("for", `checkbox${time}`);
+		let labelDev = document.createElement("div");
+		labelDev.setAttribute("class", "tick_mark")
+		label.appendChild(labelDev);
+		let div = document.createElement("div");
+		div.setAttribute("class", "col-1");
+		div.appendChild(input);
+		div.appendChild(label);
+		// let list = document.getElementById("list");
+		// list.appendChild(div);
+		parent.appendChild(div);
+	}
+
+	const deleteTarget = (parent) => {
+		console.log(parent.id);
+		let targetTag = document.getElementById(parent.id);
+		targetTag.remove();
+	}
+</script>
+</html>
