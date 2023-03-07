@@ -1,0 +1,21 @@
+.container {
+	display: flex;
+	flex-direction: column; /* 플렉스 아이템을 가로 방향으로 배치 */
+	justify-content: space-between; /* 플렉스 아이템 간 간격을 동일하게 설정 */
+	align-items: center; /* 플렉스 아이템을 수직 방향으로 가운데 정렬 */
+}
+
+.header {
+	flex: 1;
+	padding: 10px;
+}
+
+.body {
+	flex: 1;
+	padding: 10px;
+}
+
+.footer {
+	flex: 1;
+	padding: 10px;
+}
