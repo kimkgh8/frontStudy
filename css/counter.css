@@ -208,7 +208,6 @@ main {
   border-radius: var(--radius);
 }
 .count {
-  color: var(--clr-primary-5);
   padding: 1rem;
 }
 .btn-hero {
@@ -230,4 +229,16 @@ main {
 .btn-hero:hover {
   color: var(--clr-white);
   background: var(--clr-black);
+}
+
+.font-minus {
+	color: tomato;
+}
+
+.font-plus {
+	color: deepskyblue;
+}
+
+.font-zero {
+	color: black;
 }
