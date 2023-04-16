@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starter</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./css/reviews.css" />
+  </head>
+  <body>
+	<main>
+		<section class="container">
+			<div class="title">
+				<h2 calss="title underline">Our Reviews</h2>
+				<div class="underline"></div>
+			</div>
+			<article class="review">
+				<div class="img-container">
+					<img id="person-img" src="" alt="">
+				</div>
+				<h4 id="author"></h4>
+				<p id ="job"></p>
+				<p id ="info" class="info"></p>
+				<div class=button-container>
+					<button class="prev-btn" onclick="moveReviews('prev')"><i class="fas fa-chevron-left"></i></button>
+					<button class="next-btn" onclick="moveReviews('next')"><i class="fas fa-chevron-right"></i></button>
+				</div>
+				<button class="random-btn" onclick="randomReviews()">supries me</button>
+			</article>
+		</section>
+	</main>
+    <!-- javascript -->
+    <script src="./js/reviews.js"></script>
+  </body>
+</html>
